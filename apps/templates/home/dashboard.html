@@ -1,0 +1,54 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-12 my-4">
+            <div class="card border-0 shadow">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-centered table-nowrap mb-0 rounded">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="border-0 rounded-start">#</th>
+                                    <th class="border-0">Uploaded File</th>
+                                    <th class="border-0">Width</th>
+                                    <th class="border-0">Height</th>
+                                    <th class="border-0 rounded-end">Converted Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for obj in objects %}
+                                <tr>
+                                    <td><a href="#" class="text-primary fw-bold">{{ forloop.counter }}</a> </td>
+                                    <td class="fw-bold d-flex align-items-center">
+                                        {{ obj.file_name }}
+                                    </td>
+                                    <td>
+                                        {{ obj.width }}
+                                    </td>
+                                    <td>
+                                        {{ obj.height }}
+                                    </td>
+                                    <td>
+                                        {{ obj.image_name }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
